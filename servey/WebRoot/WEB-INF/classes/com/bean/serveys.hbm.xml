@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.bean.Serveys" table="serveys" lazy="true">
+	
+		<id name="id" column="id" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="name" type="string"></property>
+		
+		<property name="description" column="description" type="string"></property>
+		<property name="gender" column="gender" type="string"></property>
+		<property name="beginAge" column="beginAge" type="int"></property>
+		<property name="endAge" column="endAge" type="int"></property>
+		<property name="beginDate" column="beginDate" type="date"></property>
+		<property name="endDate" column="endDate" type="date"></property>
+		<property name="checkLogin" column="checkLogin" type="string"></property>
+		
+		<set name="questions" cascade="all" inverse="true" lazy="true">
+			<key column="servey_id"></key>
+			<one-to-many class="com.bean.Question"/>
+		</set>
+			
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.bean.Question" table="question" lazy="true">
+	
+		<id name="id" column="id" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="question" column="question" type="string"></property>
+		<property name="type" column="type_" type="integer"></property>
+		<property name="answer1" column="answer1" type="string"></property>
+		<property name="answer2" column="answer2" type="string"></property>
+		<property name="answer3" column="answer3" type="string"></property>
+		<property name="answer4" column="answer4" type="string"></property>
+		<property name="answer5" column="answer5" type="string"></property>
+		<property name="answer6" column="answer6" type="string"></property>
+		<property name="answer7" column="answer7" type="string"></property>
+		<property name="answerCount" column="answerCount" type="integer"></property>
+		
+		<property name="description" column="description" type="string"></property>
+		
+		<many-to-one name="servey" column="servey_id" class="com.bean.Serveys"></many-to-one>
+		
+		<!-- <one-to-one name="parentQuestion" class="com.bean.Question" cascade="none" constrained="true"></one-to-one> -->
+		<many-to-one name="parentQuestion" column="parentQuestion" class="com.bean.Question" unique="true" cascade="none"></many-to-one>
+		<many-to-one name="childQuestion" column="childQuestion" class="com.bean.Question" fetch="select" unique="true" cascade="save-update"></many-to-one> 
+		<!-- <one-to-one name="childQuestion" class="com.bean.Question" cascade="none" constrained="true"></one-to-one> -->
+		
+		<set name="answers" cascade="all" inverse="true" lazy="true">
+			<key column="question_id"></key>
+			<one-to-many class="com.bean.Answer"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

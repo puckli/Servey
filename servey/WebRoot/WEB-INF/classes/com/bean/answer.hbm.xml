@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.bean.Answer" table="answer">
+	
+		<id name="id" column="id" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="answer" column="answer" type="string"></property>
+		<property name="username" column="username" type="string"></property>
+		
+		<many-to-one name="question" column="question_id" class="com.bean.Question"></many-to-one>
+		<property name="serveyId" column="servey_id" type="integer"></property>
+		<property name="questionType" type="integer"></property>
+		<property name="answerCount" type="integer"></property>
+		<property name="answer1" type="string"></property>
+		<property name="answer2" type="string"></property>
+		<property name="answer3" type="string"></property>
+		<property name="answer4" type="string"></property>
+		<property name="answer5" type="string"></property>
+		<property name="answer6" type="string"></property>
+		<property name="answer7" type="string"></property>
+						
+	</class>
+
+</hibernate-mapping>
