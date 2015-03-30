@@ -1,0 +1,40 @@
+
+body{
+	background-color:#ddd;
+}
+
+h1{
+	display: block;
+font-family: 'Lucida Grande', arial, sans-serif;
+font-size: 24px;
+font-weight: bold;
+height: 30px;
+text-align: center;
+width: 900px;
+margin:12px auto;
+}
+#questionDescription,#answerCount{
+	width:370px;
+}
+
+article{
+	width:700px;
+	margin:10px auto ;
+	line-height:25px;
+}
+
+section p{
+	margin:15px 0 5px;
+	padding:5px 0;
+	border-top:1px dashed #ccc;
+}
+
+
+
+
+
+
+
+
+
+

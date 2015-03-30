@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+<constant name="struts.i18n.encoding" value="utf8"/>
+	<package name="servey" extends="struts-default">
+		
+		<interceptors>
+			<interceptor name="loginedInterceptor" class="com.interceptor.LoginedInterceptor"></interceptor>
+			<interceptor name="adminLoginedInterceptor" class="com.interceptor.AdminLoginedInterceptor"></interceptor>
+			<interceptor-stack name="loginedInterceptorStack">
+				<interceptor-ref name="loginedInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+			<interceptor-stack name="adminLoginedInterceptorStack">
+				<interceptor-ref name="adminLoginedInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+	
+		<action name="registerAction" class="com.action.RegisterAction">
+			<result name="success">/registersuccess.jsp</result>
+			<result name="input">/register.jsp</result>
+			<result name="exist">/register.jsp</result>
+		</action>
+		
+		<action name="loginAction" class="com.action.LoginAction">
+			<result name="success">/index.jsp</result>
+			<result name="input">/login.jsp</result>
+			<result name="notexist">/login.jsp</result>
+			<result name="passworderror">/login.jsp</result>
+			<result name="admin" type="redirect">
+				<param name="location">/admin/admin.jsp</param>
+			</result>
+		</action>
+		<action name="testAction" class="com.action.TestAction" method="getServeyInfo">
+			<result name="success" type="dispatcher">/test.jsp</result>
+		</action>
+		
+		<action name="indexLoginAction" class="com.action.IndexLoginAction"></action>
+		<action name="indexUnloginAction" class="com.action.IndexUnloginAction"></action>
+		
+		<action name="startFillServeyAction" class="com.action.StartFillServeyAction">
+			<result name="success">/replyservey.jsp</result>
+			<result name="error">/isfilled.jsp</result>
+		</action>
+		<action name="isFilled" class="com.action.StartFillServeyAction" method="isFilled"></action>
+		
+		<action name="fillServeyAction" class="com.action.FillServeyAction">
+		</action>
+		<action name="fillServeyAction2" class="com.action.FillServeyAction2">
+		</action>
+		<action name="quitAction" class="com.action.QuitAction">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="admin" extends="servey" namespace="/admin">
+		<action name="isadmin" class="com.action.IsadminAction">
+		</action>
+		<action name="getUser" class="com.action.GetUserAction">
+		</action>
+		<action name="deleteUser" class="com.action.DeleteUserAction">
+		</action>
+		<action name="getQuestionnaire" class="com.action.GetQuestionnaireAction">
+		</action>
+		<action name="createServeyAction" class="com.action.CreateServeyAction">
+		</action>
+		<action name="createQuestionAction" class="com.action.CreateQuestionAction">
+		</action>
+		<action name="deleteServey" class="com.action.DeleteServeyAction">
+		</action>
+		<action name="getServeyInfo" class="com.action.AlterServeyAction" method="getServeyInfo"></action>
+		<action name="alterServey" class="com.action.AlterServeyAction" method="alterServey"></action>
+		<!-- 结果统计 -->
+		<action name="getAllservey" class="com.action.StatisticalAction" method="initQuery">
+		</action>
+		<action name="getAllQuestionByServeyId" class="com.action.StatisticalAction" method="getAllQuestionByServeyId">
+		</action>
+		<action name="getAnswerResult" class="com.action.GetAnswerResultAction">
+		</action>
+		<action name="toExcel" class="com.action.ToExcelAction"></action>
+	</package>
+	
+</struts>

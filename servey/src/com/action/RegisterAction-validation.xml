@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+
+	<field name="username">
+		<field-validator type="requiredstring">
+			<message>账号不能为空！</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">3</param>
+			<param name="maxLength">15</param>
+			<message>账号长度必须在3至15之间！</message>
+		</field-validator>
+	</field>
+	<field name="password">
+		<field-validator type="requiredstring">
+			<message>密码不能为空！</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">15</param>
+			<message>密码长度必须在4至15之间！</message>
+		</field-validator>
+	</field>
+ 	<field name="repassword">
+ 		<field-validator type="fieldexpression">
+			<param name="expression">(password eq repassword)</param>
+			<message>两次密码必须相同！</message>
+		</field-validator>
+		<field-validator type="requiredstring">
+			<message>重复密码不能为空！</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">15</param>
+			<message>密码长度必须在4至15之间！</message>
+		</field-validator>
+	</field> 
+	<field name="age">
+		<field-validator type="required">
+			<message>年龄不能为空</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">12</param>
+			<param name="max">100</param>
+			<message>年龄必须在12至100之间</message>
+		</field-validator>
+	</field>
+	
+
+</validators>

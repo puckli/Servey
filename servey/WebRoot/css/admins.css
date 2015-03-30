@@ -1,0 +1,179 @@
+body {
+	background-color: #f2f2f2;
+	text-align: center;
+	margin-bottom:30px;
+}
+
+.hide {
+	display: none;
+}
+#wrap {
+	width: 900px;
+	margin: 10px auto 100px;
+	/* outline:1px solid #ccc; */
+	margin-bottom: 25px;
+}
+
+#manageUserdiv,#manageServeysdiv,#manageResultdiv {
+	clear: both;
+	display: block;
+	width: 900px;
+}
+
+/* 用户管理 */
+#manageUserdiv td:last-of-type {
+	cursor: pointer;
+	text-decoration:underline;
+	color:blue;
+}
+#manageUserdiv table{
+	border:1px;
+	width:900px;
+	text-align:center;
+	border-collapse: collapse;
+}
+#manageUserdiv table tr:hover{
+	background-color:#A5BFD8;
+}
+#manageUserdiv table th,#manageUserdiv table td{
+	padding: 0.3em 1em;
+}
+
+
+/* 问卷管理 */
+
+#serveyNumber{
+	font-weight:bold;
+}
+#showServeysdiv{
+	text-align:left;
+}
+#showServeysdiv>div{
+	margin:25px 0;
+	padding:3px;
+	border-bottom: 1px dashed #BFAFA7;
+}
+#showServeysdiv>div:hover{
+	background-color:#A5BFD8;
+}
+#showServeysdiv>div>div{
+	display:block;
+	margin:2px 0;
+}
+#showServeysdiv>div>p:first-child{
+	padding:0;
+	margin:0;
+}
+#showServeysdiv p{
+	text-align:left;
+	padding:2px;
+	margin:5px 0;
+	line-height:20px;
+}
+#showServeysdiv button{
+	text-align:center;
+	width:50px;
+	height:24px;
+	font-size:14px;
+	padding:0;
+}
+#showServeysdiv button:hover{
+	border:1px solid red;
+}
+#showServeysdiv ul{
+	display:block;
+}
+#showServeysdiv ul li{
+	text-align:left;
+	width:120px;
+	height:24px;
+	font-size:14px;
+}
+#showServeysdiv ul .ages{
+	text-align:left;
+	width:140px;
+	height:24px;
+	font-size:14px;
+}
+#showServeysdiv ul .dates{
+	text-align:left;
+	width:170px;
+	height:24px;
+	font-size:14px;
+}
+
+
+/* 结果统计 */
+#countinfoleft {
+	width: 200px;
+	height: 500px;
+	text-align: left;
+	float: left;
+	padding: 10px;
+	line-height: 25px;
+	border-right: 1px solid #aaa;
+}
+#countinforight td:last-of-type {
+	cursor: pointer;
+	color:blue;
+}
+#countinforight {
+	width: 660px;
+	float: left;
+	left: 200px;
+	text-align: left;
+}
+
+#countbycharacter {
+	padding: 20px;
+	line-height: 22px;
+}
+
+#countbycharacter p {
+	font-weight: bold;
+}
+
+#countbycharacter span {
+	height: 26px;
+}
+
+#countbycharacter>div {
+	margin: 10px auto 10px;
+	padding:7px 0 10px 10px;
+}
+
+#countbycharacter>div:hover {
+	background-color:#CED6DE;
+}
+
+#countbygraphics {
+	padding: 0px 20px 0px;
+	line-height: 22px;
+	margin-bottom: 35px;
+}
+
+#countbygraphics>div{
+	border-bottom: 1px dashed #BFAFA7;
+	border-left: 1px dashed #BFAFA7;
+}
+#countbygraphics>div{
+	border-bottom: 1px dashed #BFAFA7;
+	border-left: 1px dashed #BFAFA7;
+}
+#countbygraphics table {
+	width: 310px;
+}
+#countbygraphics table tr td:first-of-type{
+	width:16px;
+}
+footer {
+	clear: both;
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	background-color: #985034;
+	line-height: 30px;
+	position: fixed;
+	bottom: 0px;
+	margin: 0 auto 0;
+}
